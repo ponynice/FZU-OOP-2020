@@ -2,23 +2,40 @@
 #include<string.h>
 int main()
 {
-    int number(char a); 
-    void print(int a);
-    int sum(int a,int b,int c,char d,char e);
-    char a,b,c,d,x1,x2,x3,y1,y2,y3,e,f;
+    int chineseTransformNumber(char a[]); 
+    void print_numberTransformChinese(int a);
+    int sum(int a,int b,int c,char d[],char e[]);
+    char a[5],b[5],c[5],d[5],x1[5],x2[5],x3[5],y1[5],y2[5],y3[5],e[5],f[5];
     int z1,z2,z3,i;
     scanf("%s %s %s %s",a,b,c,d);
+    if(strcmp(a,"整数")){
+		printf("输入错误。");
+		return 0; 
+	}
     scanf("%s %s %s",x1,x2,x3);
+    if(strcmp(b,x1)){
+		printf("输入错误。");
+		return 0; 
+	}
     scanf("%s %s %s",y1,y2,y3);
+    if(strcmp(x1,y1)){
+		printf("输入错误。");
+		return 0; 
+	}
     scanf("%s %s",e,f);
-    z1=number(**d);
-    z2=number(**x3);
-    z3=number(**y3);
+    if(strcmp(y1,f)){
+		printf("输入错误。");
+		return 0; 
+	}
+	
+    z1=chineseTransformNumber(d);
+    z2=chineseTransformNumber(x3);
+    z3=chineseTransformNumber(y3);
     i=sum(z1,z2,z3,x2,y2);
-    print(i);                                               
+    print_numberTransformChinese(i);                                               
     return 0;
  } 
- void print(int a)
+ void print_numberTransformChinese(int a)
 {
     
     if(a==0)printf("零"); 
@@ -34,7 +51,7 @@ int main()
     else printf("十");
      
 }
-int sum(int a,int b,int c,char* d,char* e)
+int sum(int a,int b,int c,char d[],char e[])
 {
     int s;
     if(strcmp(d,"增加")==0)s=a+b;
@@ -43,7 +60,7 @@ int sum(int a,int b,int c,char* d,char* e)
     else s=s-c;
     return s;
 }
-int number(char* a)
+int chineseTransformNumber(char a[])
 {
     
     if(strcmp(a,"一")==0)return 1;
