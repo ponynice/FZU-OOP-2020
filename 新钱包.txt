@@ -1,0 +1,4 @@
+@echo off
+title ²âÊÔ½Å±¾
+gcc Ç®°ü.cpp -o Ç®°ü.exe 
+pause
